@@ -1,0 +1,19 @@
+{
+  "name": "testscript",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.4",
+  "dependencies": {
+    "ws": "^8.19.0",
+    "wss": "^3.3.4",
+    "xuri-rpc": "^1.0.10"
+  }
+}

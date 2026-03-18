@@ -1,0 +1,28 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+overrides:
+  xuri-rpc: link:../../xuri-rpc
+
+importers:
+
+  .:
+    dependencies:
+      reconnecting-websocket:
+        specifier: ^4.4.0
+        version: 4.4.0
+      xuri-rpc:
+        specifier: link:../../xuri-rpc
+        version: link:../../xuri-rpc
+
+packages:
+
+  reconnecting-websocket@4.4.0:
+    resolution: {integrity: sha512-D2E33ceRPga0NvTDhJmphEgJ7FUYF0v4lr1ki0csq06OdlxKfugGzN0dSkxM/NfqCxYELK4KcaTOUOjTV6Dcng==}
+
+snapshots:
+
+  reconnecting-websocket@4.4.0: {}
