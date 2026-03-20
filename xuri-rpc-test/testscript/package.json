@@ -14,6 +14,11 @@
   "dependencies": {
     "ws": "^8.19.0",
     "wss": "^3.3.4",
-    "xuri-rpc": "^1.0.10"
+    "xuri-rpc": "^1.0.10",
+    "xuri-rpc-ts-ws": "link:../../xuri-rpc-ts-ws",
+    "xuri-rpc-ts-ws-ser": "link:../../xuri-rpc-ts-ws-ser"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
   }
 }

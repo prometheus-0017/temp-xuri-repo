@@ -1,2 +1,4 @@
 overrides:
   xuri-rpc: link:../../../xuri-rpc
+  xuri-rpc-ts-ws-ser: link:../../xuri-rpc-ts-ws-ser
+  xuri-rpc-ts-ws: link:../../xuri-rpc-ts-ws

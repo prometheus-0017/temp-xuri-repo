@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+      "lib": ["ES2020", "ES2021.WeakRef"],
+      "target": "es2018",
+      "module": "ESNext",
+      "outDir": "dist",
+      "isolatedModules": true,
+      "declaration": true,
+      "strict": true,
+      "noEmitOnError": true,
+      "sourceMap": true,
+      "esModuleInterop": true
+  },
+      "include": ["src/**/*"],
+      "exclude": ["node_modules", "dist"]
+}

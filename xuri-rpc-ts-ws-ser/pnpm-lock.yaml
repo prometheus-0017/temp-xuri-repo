@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
       ws:
         specifier: ^8.19.0
         version: 8.19.0
@@ -19,6 +22,11 @@ importers:
         version: link:../../xuri-rpc
 
 packages:
+
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   ws@8.19.0:
     resolution: {integrity: sha512-blAT2mjOEIi0ZzruJfIhb3nps74PRWTCz1IjglWEEpQl5XS/UNama6u2/rjFkDDouqr4L67ry+1aGIALViWjDg==}
@@ -33,5 +41,7 @@ packages:
         optional: true
 
 snapshots:
+
+  typescript@5.9.3: {}
 
   ws@8.19.0: {}
