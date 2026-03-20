@@ -14,6 +14,9 @@ importers:
       reconnecting-websocket:
         specifier: ^4.4.0
         version: 4.4.0
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
       xuri-rpc:
         specifier: link:../../xuri-rpc
         version: link:../../xuri-rpc
@@ -23,6 +26,13 @@ packages:
   reconnecting-websocket@4.4.0:
     resolution: {integrity: sha512-D2E33ceRPga0NvTDhJmphEgJ7FUYF0v4lr1ki0csq06OdlxKfugGzN0dSkxM/NfqCxYELK4KcaTOUOjTV6Dcng==}
 
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
 snapshots:
 
   reconnecting-websocket@4.4.0: {}
+
+  typescript@5.9.3: {}

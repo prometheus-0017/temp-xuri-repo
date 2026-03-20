@@ -2,6 +2,7 @@
   "name": "xuri-rpc-ts-ws-ser",
   "version": "1.0.0",
   "description": "",
+  "moduleResolution": "node",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
