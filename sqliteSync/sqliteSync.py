@@ -76,7 +76,7 @@ def set_add_tag(cursor,tableInfo:TableInfo, base_prefix, supplement_prefix, prim
 
     placeholders = ', '.join(['?' for _ in columns])
     cursor.execute(f"""
-        update diff_{tblname}_add set tag=replace(tag,'/batchImport/','') + '/batchImport/'
+        update diff_{tblname}_add set tag=replace(tag,'/batchImport/','//') + '/batchImport/'
     """)
 def apply_update(cursor,tableInfo:TableInfo, base_prefix, supplement_prefix, primary_key='id'):
     columns=tableInfo['columns']
@@ -135,7 +135,8 @@ def sync_with_diff_tables(db_path, base_table, supplement_table, primary_key='id
         print("❌ 同步失败:", e)
     finally:
         conn.close()
-def diffStellarDatabase(base_db_path:str,supplement_db_path:str,tbls:list[str],primary_key='id'):
+from typing import Iterable
+def diffStellarDatabase(base_db_path:str,supplement_db_path:str,tbls:Iterable[str],primary_key='id'):
     conn = sqlite3.connect(base_db_path)
     cursor = conn.cursor()
     #attach another db
@@ -184,15 +185,17 @@ def someUpdate(base_db_path:str):
     cursor.execute('select id,extra from diff_node_update')
     for row in cursor:
         print(row[0],guessNodeType(row[1]))
+    conn.commit()
     conn.close()
 def setStellarNodeAddTag(base_db_path):
     conn = sqlite3.connect(base_db_path)
     cursor = conn.cursor()
     tableInfo=createTableInfo(cursor,'', 'node','id')
     set_add_tag(cursor,tableInfo, '', '')
+    conn.commit()
     conn.close()
 
-def someApplyAdd(base_db_path:str,tbls:list[str]):
+def someApplyAdd(base_db_path:str,tbls:Iterable[str]):
 
     conn = sqlite3.connect(base_db_path)
     cursor = conn.cursor()
@@ -206,15 +209,18 @@ def someApplyAdd(base_db_path:str,tbls:list[str]):
 
 
 if __name__ == '__main__':
-#     tableName:list[str]='''edge
-# foreign_edge
-# foreign_node
-# node'''.splitlines()
-#     basePath=r'C:\Users\lzy\Desktop\dbtest\\'
-#     diffStellarDatabase(basePath+'memory',basePath+'memory2',tableName,'id')
-#     someUpdate(basePath+'memory2')
-#     someApplyAdd(basePath+'memory2')
+    tableName:Iterable[str]='''edge
+foreign_edge
+foreign_node
+node'''.splitlines()
     basePath=r'C:\Users\lzy\Desktop\dbtest\\'
-    diffStellarDatabase(basePath+'b',basePath+'a',['c'],'id')
-    someApplyAdd(basePath+'b',['c'])
+    diffStellarDatabase(basePath+'memory',basePath+'memory2',tableName,'id')
+    setStellarNodeAddTag(basePath+'memory')
+    someUpdate(basePath+'memory')
+    # someApplyAdd(basePath+'memory',tableName)
+
+
+    # basePath=r'C:\Users\lzy\Desktop\dbtest\\'
+    # diffStellarDatabase(basePath+'b',basePath+'a',['c'],'id')
+    # someApplyAdd(basePath+'b',['c'])
     
